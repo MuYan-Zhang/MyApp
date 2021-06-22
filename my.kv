@@ -1,34 +1,14 @@
-<MyGrid>:
+<Button>:
+    font_size:40
+    color: 0.3, 0.2, 0.7, 1
+    size_hint: 0.4, 0.4
 
-    f_name: first_name
-    l_name: last_name
-    email: email
+<FloatLayout>:
+    Button:
+        id:btn
+        pos_hint: {"x":0.3, "top":0.7}
+        text: "MuYan Zhang" if btn.state == "normal" else "hi"
+        background_color: 0.3, 0.4, 0.5, 1
 
-    GridLayout:
-        cols:1
-        size: root.width, root.height
-
-        GridLayout:
-            cols:2
-            Label:
-                text: "First Name: "
-            TextInput:
-                id: first_name
-                multiline: False
-
-            Label:
-                text: "Last Name: "
-            TextInput:
-                id: last_name
-                multiline: False
-
-            Label:
-                text: "email: "
-            TextInput:
-                id: email
-                multiline: False
-
-        Button:
-            text: "Submit"
-            on_press: root.btn()
+    
             
