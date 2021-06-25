@@ -1,14 +1,39 @@
-<Button>:
-    font_size:40
-    color: 0.3, 0.2, 0.7, 1
-    size_hint: 0.4, 0.4
+WindowManager:
+    LoginPage:
+    SecondPage:
 
-<FloatLayout>:
+<LoginPage>:
+    name: "login"
+    
+    GridLayout:
+        cols: 1
+        
+        GridLayout:
+            cols: 2
+            
+            Label:
+                text: "Password: "
+            
+            TextInput:
+                id: inputPW
+                multiline: False
+
+        Button:
+            text: "Submit"
+            on_release:
+                app.root.current = "second" if inputPW.text == "david3E" else "login"
+                root.manager.transition.direction = "left"
+
+<SecondPage>
+    name: "second"
+
     Button:
-        id:btn
-        pos_hint: {"x":0.3, "top":0.7}
-        text: "MuYan Zhang" if btn.state == "normal" else "hi"
-        background_color: 0.3, 0.4, 0.5, 1
+        text: "Prev"
+        on_release:
+            app.root.current = "login"
+            root.manager.transition.direction = "right"
+
+
 
     
             
